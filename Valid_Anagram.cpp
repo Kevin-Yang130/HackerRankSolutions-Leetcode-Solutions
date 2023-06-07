@@ -1,5 +1,6 @@
 #include <map>
 
+//HASMAP SOLUTION
 
 class Solution {
 public:
@@ -16,5 +17,24 @@ public:
             else {return false;}
         }
 
+    }
+};
+
+
+// ALTERNATE SOLUTION - SORTING AND THEN COMPARING
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+
+        if(s.size() != t.size()) {return false;}
+        else {
+            sort(s.begin(), s.end());
+            sort(t.begin(), t.end());
+            for(int i = 0; i < t.size(); i++) {
+                if(s[i] != t[i]) {return false;}
+            }
+        }
+        return true;
     }
 };
