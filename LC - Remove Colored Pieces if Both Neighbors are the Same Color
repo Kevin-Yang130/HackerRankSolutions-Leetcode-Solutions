@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool winnerOfGame(string colors) {
+        bool re;
+        
+        int Amoves = 0, Bmoves = 0;
+        int A = 0, B = 0;
+
+        for(int i = 0; i < colors.size();i++) {
+            if(colors[i] == 'A') {
+                A++;
+                B = 0;
+            } else {
+                B++;
+                A = 0;
+            }
+            if( A >= 3) { Amoves++;}
+            if( B >= 3) { Bmoves++;}
+        }
+        
+        
+        return Amoves > Bmoves ? true: false; 
+
+        
+
+        return re;
+    }
+};
