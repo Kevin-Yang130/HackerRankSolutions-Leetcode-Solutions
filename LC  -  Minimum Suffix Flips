@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int minFlips(string target) {
+     
+    int count = 0, flips = 0;
+
+    string temp = target + '0';
+    cout << temp;
+    for(auto s: temp) {
+        if(s == '1') {
+            count++; 
+        }else {
+            if(count > 0) {
+            flips+=2;
+            }
+            count = 0;
+        }
+        
+    } 
+    if(target[target.size()-1] == '1') {
+         return flips > 0 ? flips - 1: 0;
+    }else {
+         return flips > 0 ? flips: 0;
+    }
+
+    }
+};
