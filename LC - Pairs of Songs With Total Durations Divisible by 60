@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int numPairsDivisibleBy60(vector<int>& time) {
+        vector<int> dp(60);
+
+        int pairs = 0;
+        int comp = 0;
+
+        for(auto s: time) {
+            if(s % 60 == 0) {
+                pairs += dp[0];
+            } else {
+                pairs += dp[ 60 - (s % 60)];
+            } 
+            dp[s % 60]++;    
+        }
+        return pairs;
+    }
+};
