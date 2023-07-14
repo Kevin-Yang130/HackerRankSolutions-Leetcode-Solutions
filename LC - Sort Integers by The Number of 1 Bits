@@ -1,0 +1,28 @@
+
+class Solution {
+public:
+
+    static bool comp(pair<int, int>&a, pair<int,int>&b) {
+            if(a.first != b.first) {
+                return a.first < b.first;
+            }
+            return a.second < b.second;
+    }
+    
+    vector<int> sortByBits(vector<int>& arr) {
+        vector<pair<int, int>> dc;
+        vector<int> re;
+
+        for(int i = 0; i < arr.size();i++) {
+            dc.push_back({__builtin_popcount(arr[i]),arr[i]});
+        }
+
+        sort(dc.begin(),dc.end(),comp);
+        for(int i = 0; i < dc.size();i++) {
+            re.push_back(dc[i].second);
+        }
+
+        return re;
+
+    }
+};
