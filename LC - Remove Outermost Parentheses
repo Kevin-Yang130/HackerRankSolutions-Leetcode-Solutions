@@ -1,0 +1,25 @@
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        stack<char> st;
+        string re = "";
+        string temp = "";
+
+        for(auto p: s) {
+            if(p == '(') {
+                st.push(p);
+            } else {
+                st.pop();
+            }
+            re+= p;
+            if(st.empty()) {
+                cout << re << " " << '\n';
+                re = re.substr(1,re.size()-2);
+                temp += re;
+                re = ""; 
+            }
+        }
+
+        return temp; 
+    }
+};
